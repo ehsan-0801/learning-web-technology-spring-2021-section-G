@@ -6,7 +6,7 @@
 		if($name == ""){
 			echo "Null submission...";
 		}else{
-			echo "Success";
+			echo "Name: ".$_POST['Name'];
 		}
 
 	}else{
