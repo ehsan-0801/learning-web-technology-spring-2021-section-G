@@ -2,12 +2,21 @@
     if (isset($_POST['submit'])){
      
         $ImageFile = basename($_FILES["Image"]["name"]);
+        $file_name=$_FILES['Image']['name'];
+        $file_type=$_FILES['Image']['type'];
+        $file_size=$_FILES['Image']['size'];
+        $file_tem_loc=$_FILES['Image']['tmp_name'];
+        
         $imageExtensions = strtolower(pathinfo($ImageFile,PATHINFO_EXTENSION));
         $allowedEXT = array('jpeg', 'png', 'jpg');
-       
-        if (!in_array($imageExtensions, $allowedEXT)) {
+        if(empty($file_name)||empty($file_type)||empty($file_size)||empty($file_tem_loc))
+        {
+            echo "Nothing Uploaded";
+        }
+        else if (!in_array($imageExtensions, $allowedEXT)) {
             echo "Please Upload jpg,jpeg or png files.";
         }
+        
         else{
             if ($_FILES["Image"]["size"] > 4194304) {
                 echo "!!!Limit Exceeded!!!!";
@@ -18,6 +27,7 @@
              }
         }
     }
+    
 
 ?>
 
