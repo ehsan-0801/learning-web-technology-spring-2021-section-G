@@ -2,11 +2,12 @@
     session_start();
 
     if(isset($_POST['submit'])){
-        if(!empty($_POST['ProfilePicture'])){
-            echo "changed successfully";
+        if(move_uploaded_file($_FILES['ProfilePicture']['tmp_name'], 'file/'.$_FILES['ProfilePicture']['name']))
+        {
+            echo"Uploaded succussfully";
         }
         else{
-            echo "no file was selected";
+            echo "failed";
         }
     }
 ?>
@@ -42,12 +43,13 @@
                 </ul>
             </td>
             <td colspan="2" height="400px">
-                <form action="" method="post">
+                <form action="" method="post" enctype="multipart/form-data">
                     <fieldset>
                         <legend>Profile Picture</legend>
                         <table >
                             <tr>
                                 <td>
+                            
                                     <img src="Images/images.png" width="300px" height="300px"><br>
                                     <input type="file" name="ProfilePicture" id="ProfilePicture"><hr>
                                 </td>
