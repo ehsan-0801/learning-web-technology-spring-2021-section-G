@@ -18,33 +18,26 @@
 			<td>EMAIL</td>
 			<td>ACTION</td>
 		</tr>
-		<tr>
-			<td>1</td>
-			<td>ALAMIN</td>
-			<td>ALAMIN@GMAIL.COM</td>
-			<td>
-				<a href="edit.php?id=1"> EDIT</a> |
-				<a href="delete.php?id=1"> DELETE</a>
-			</td>
-		</tr>
-		<tr>
-			<td>2</td>
-			<td>ALAMIN</td>
-			<td>ALAMIN@GMAIL.COM</td>
-			<td>
-				<a href="edit.php?id=2"> EDIT</a> |
-				<a href="delete.html"> DELETE</a>
-			</td>
-		</tr>
-		<tr>
-			<td>3</td>
-			<td>ALAMIN</td>
-			<td>ALAMIN@GMAIL.COM</td>
-			<td>
-				<a href="edit.php?id=3"> EDIT</a> |
-				<a href="delete.html"> DELETE</a>
-			</td>
-		</tr>
+		<?php
+			$users = json_decode(file_get_contents('../model/user.json'), true);
+
+			$i = 1;
+
+			foreach($users as $user) {
+				echo '<tr>
+				<td>'.$i++.'</td>
+				<td>'.$user['username'].'</td>
+				<td>'.$user['email'].'</td>
+				<td>
+					<a href="edit.php?id=1"> EDIT</a> |
+					<a href="delete.php?id=1"> DELETE</a>
+				</td>
+			</tr>';
+			}
+
+			
+		?>
+		
 	</table>
 
 <?php
