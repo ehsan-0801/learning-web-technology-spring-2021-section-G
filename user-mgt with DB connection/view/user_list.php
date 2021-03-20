@@ -26,7 +26,7 @@
 				<td>{$row['ID']}</td>
 				<td>{$row['username']}</td>
 				<td>{$row['email']}</td>
-				<td><a href='edit.php'>edit</a> |
+				<td><a href='edit.php?id={$row['ID']}'>edit</a> |
 				    <a href=''>delete</a>
 				</td>
 				
