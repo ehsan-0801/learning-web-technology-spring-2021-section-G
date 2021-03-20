@@ -14,7 +14,7 @@
 			if($password == $repass)
 			{
 				$connection = mysqli_connect('localhost','root', '', 'userDB');
-				$sql = "insert into users values('$username', '$password','$email')";
+				$sql = "insert into users values('','$username', '$password','$email')";
 				$result=mysqli_query($connection,$sql);
 				header('location: ../view/login.html');
 			}
