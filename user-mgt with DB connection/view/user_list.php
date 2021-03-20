@@ -1,8 +1,9 @@
 <?php
 	$title = "User List Page";
-	include('header.php');
-	$DataInput = file_get_contents('../model/user.json');
-	$DataArray = json_decode($DataInput, true);
+	require('header.php');
+	$connection = mysqli_connect('localhost','root', '', 'userDB');
+	$sql="select * from users";
+	$usersData=mysqli_query($connection, $sql);
 ?>
 
 	<a href="home.php">Back</a> |
@@ -19,27 +20,21 @@
 			<td>ACTION</td>
 		</tr>
 		<?php
-			$users = json_decode(file_get_contents('../model/user.json'), true);
-
-			$i = 1;
-
-			foreach($users as $user) {
-				echo '<tr>
-				<td>'.$i++.'</td>
-				<td>'.$user['username'].'</td>
-				<td>'.$user['email'].'</td>
-				<td>
-					<a href="edit.php?id=1"> EDIT</a> |
-					<a href="delete.php?id=1"> DELETE</a>
+		while($row=mysqli_fetch_assoc($usersData)){
+	echo "
+			<tr>
+				<td>{$row['ID']}</td>
+				<td>{$row['username']}</td>
+				<td>{$row['email']}</td>
+				<td><a href='edit.php'>edit</a> |
+				    <a href=''>delete</a>
 				</td>
-			</tr>';
-			}
+				
+			</tr>";
+}
+?>
 
-			
-		?>
-		
-	</table>
 
 <?php
-	include('footer.php');
+	require('footer.php');
 ?>
