@@ -18,14 +18,15 @@
 			<td>ACTION</td>
 		</tr>
 		<?php
-		$rows=getAllUser();
-		while($rows){
+		$users=getAllUser();
+		foreach($users as $user){
 	echo "
 			<tr>
-				<td>{$rows['username']}</td>
-				<td>{$rows['email']}</td>
-				<td><a href='edit.php?id={$rows['ID']}'>edit</a> |
-				    <a href='../controller/delete.php?id={$rows['ID']}'>delete</a>
+				<td>{$user['ID']}</td>
+				<td>{$user['username']}</td>
+				<td>{$user['email']}</td>
+				<td><a href='edit.php?id={$user['ID']}'>edit</a> |
+				    <a href='../controller/delete.php?id={$user['ID']}'>delete</a>
 				</td>
 				
 			</tr>";
