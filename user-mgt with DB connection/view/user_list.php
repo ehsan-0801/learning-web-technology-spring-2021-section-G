@@ -1,9 +1,7 @@
 <?php
 	$title = "User List Page";
 	require('header.php');
-	$connection = mysqli_connect('localhost','root', '', 'userDB');
-	$sql="select * from users";
-	$usersData=mysqli_query($connection, $sql);
+	require_once('../model/userModel.php');
 ?>
 
 	<a href="home.php">Back</a> |
@@ -20,14 +18,15 @@
 			<td>ACTION</td>
 		</tr>
 		<?php
-		while($row=mysqli_fetch_assoc($usersData)){
+		$users=getAllUser();
+		foreach($users as $user){
 	echo "
 			<tr>
-				<td>{$row['ID']}</td>
-				<td>{$row['username']}</td>
-				<td>{$row['email']}</td>
-				<td><a href='edit.php?id={$row['ID']}'>edit</a> |
-				    <a href='../controller/delete.php?id={$row['ID']}'>delete</a>
+				<td>{$user['ID']}</td>
+				<td>{$user['username']}</td>
+				<td>{$user['email']}</td>
+				<td><a href='edit.php?id={$user['ID']}'>edit</a> |
+				    <a href='../controller/delete.php?id={$user['ID']}'>delete</a>
 				</td>
 				
 			</tr>";
