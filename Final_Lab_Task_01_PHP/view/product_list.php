@@ -13,11 +13,11 @@
 		foreach($products as $product){
 	echo "
 			<tr>
-				<td>{$product['ID']}</td>
+				<td>{$product['product_id']}</td>
 				<td>{$product['name']}</td>
-				<td>{(int)$product['sellP']}-{(int)$product['buyP']}</td>
-				<td><a href='editproduct.php?id={$product['ID']}'>edit</a> |
-				    <a href='../controller/deleteproduct.php?id={$product['ID']}'>delete</a>
+				<td>{$product['SellingPrice']}-{$product['BuyingPrice']}</td>
+				<td><a href='../view/updateproduct.php?id={$product['product_id']}'>edit</a> |
+				    <a href='../view/delete_product.php?id={$product['product_id']}'>delete</a>
 				</td>
 				
 			</tr>";

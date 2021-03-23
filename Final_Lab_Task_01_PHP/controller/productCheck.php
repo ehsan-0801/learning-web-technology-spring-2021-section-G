@@ -18,7 +18,7 @@
                 'sellP'=> $sellP,
                         ];
             $status = insertProduct($products);
-            if($status)
+            if(isset($_POST['display']))
             {
                 header('location: ../view/product_list.php');
             }
