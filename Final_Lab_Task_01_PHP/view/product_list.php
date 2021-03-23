@@ -15,7 +15,7 @@
 			<tr>
 				<td>{$product['ID']}</td>
 				<td>{$product['name']}</td>
-				<td>{$product['sellP']}-{$product['buyP']}</td>
+				<td>{(int)$product['sellP']}-{(int)$product['buyP']}</td>
 				<td><a href='editproduct.php?id={$product['ID']}'>edit</a> |
 				    <a href='../controller/deleteproduct.php?id={$product['ID']}'>delete</a>
 				</td>
