@@ -13,5 +13,16 @@ function insertProduct($products){
     else{
 		return false;
 	}
+function getAllProducts(){
+
+        $conn = getConnection();
+        $sql = "select * from products";
+        $result = mysqli_query($conn, $sql);
+        $products = [];
+        while ($row = mysqli_fetch_assoc($result)) {
+            array_push($products, $row);
+        }
+        return $products;
+    }
 
 }
