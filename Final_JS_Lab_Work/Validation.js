@@ -31,8 +31,6 @@ function validating() {
     function designation_validating() {
         if (designation == "") {
             document.getElementById('msg3').innerHTML = "*designation field cannot be empty";
-        } else {
-            if ()
         }
     }
 
